@@ -35,15 +35,18 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-let randomNumber = getRandomIntInclusive(0, 99);
-// console.log(randomNumber);
+let randomNumber = getRandomIntInclusive(1, 100);
+console.log(randomNumber);
 function play(td, delay) {
-  for (let i = 0; i <= td.length; i++) {
-    if (i == randomNumber) {
-      setTimeout(() => {
+  setTimeout(function color() {
+    randomNumber = getRandomIntInclusive(1, 100);
+    for (let i = 0; i <= td.length; i++) {
+      if (i == randomNumber - 1) {
         td[i].style.backgroundColor = 'red';
-        console.log('dfghjhgfdfgh');
-      }, delay);
+        getRandomIntInclusive(1, 100);
+        console.log(getRandomIntInclusive(1, 100));
+        setTimeout(color, delay);
+      }
     }
-  }
+  }, delay);
 }
