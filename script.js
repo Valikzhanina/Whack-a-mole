@@ -6,9 +6,12 @@ let t;
 function getTimer() {
   select.addEventListener('change', () => {
     let timer = select.value;
+    let delay = +timer * 1000;
+    console.log(delay);
     createPlayers();
-    play(td, timer);
-    return timer;
+    play(td, delay);
+
+    return delay;
   });
 }
 getTimer();
@@ -34,14 +37,13 @@ function getRandomIntInclusive(min, max) {
 }
 let randomNumber = getRandomIntInclusive(0, 99);
 // console.log(randomNumber);
-
-function play(td) {
+function play(td, delay) {
   for (let i = 0; i <= td.length; i++) {
     if (i == randomNumber) {
       setTimeout(() => {
         td[i].style.backgroundColor = 'red';
         console.log('dfghjhgfdfgh');
-      }, 3000);
+      }, delay);
     }
   }
 }
